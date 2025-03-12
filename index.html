@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Asad Ahmed | Portfolio</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				background-color: #121212;
+				color: white;
+				margin: 0;
+				padding: 0;
+				overflow-x: hidden;
+			}
+			.container {
+				max-width: 900px;
+				margin: auto;
+				padding: 20px;
+			}
+			header {
+				text-align: center;
+				padding: 20px 0;
+				background: linear-gradient(90deg, #6a0dad, #00ffcc);
+				animation: fadeIn 2s ease-in-out;
+				/* display: flex; */
+			}
+			.section {
+				margin: 20px 0;
+				padding: 20px;
+				background-color: #1e1e1e;
+				border-radius: 10px;
+				transform: scale(0.9);
+				opacity: 0;
+				transition: all 0.8s ease-in-out;
+			}
+			.profile-pic {
+				width: 200px;
+				height: 200px;
+				border-radius: 50%;
+				object-fit: cover;
+				object-position: center;
+				display: block;
+				margin: 10px auto;
+				opacity: 0;
+
+				transform: scale(0.5);
+				transition: all 0.2s ease-in-out;
+				transition: all 1.5s ease-in-out;
+			}
+			.first:hover {
+				transform: scale(1.2);
+				transition: all 0.5s ease-in-out;
+				/* transition : ease-out; */
+			}
+			.fade-in {
+				opacity: 1 !important;
+				transform: scale(1) !important;
+			}
+			h2 {
+				color: #00ffcc;
+				justify-content: center;
+				text-align: center;
+			}
+			ul {
+				list-style: none;
+				padding: 0;
+			}
+			ul li::before {
+				content: "\2022";
+				color: #6a0dad;
+				font-weight: bold;
+				display: inline-block;
+				width: 1em;
+				margin-left: -1em;
+			}
+			.skills {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 10px;
+				width: 100%;
+				justify-content: space-evenly;
+			}
+			.skill {
+				background: linear-gradient(90deg, #6a0dad, #00ffcc);
+				padding: 10px 15px;
+				border-radius: 5px;
+				font-weight: bold;
+				opacity: 0;
+				transform: translateY(20px);
+				transition: all 0.8s ease-in-out;
+			}
+			.skill.visible {
+				opacity: 1;
+				transform: translateY(0);
+			}
+			.contact {
+				background: #1e1e1e;
+				padding: 20px;
+				border-radius: 10px;
+				margin-top: 20px;
+				text-align: center;
+			}
+
+			.contact h2 {
+				color: white;
+				font-size: 24px;
+				margin-bottom: 15px;
+			}
+
+			.contact input,
+			.contact textarea {
+				width: 50vh;
+				margin: 10px 0;
+				padding: 12px;
+				border: none;
+				border-radius: 5px;
+				background: #f5f5f5;
+				color: #333;
+				font-size: 16px;
+			}
+
+			.contact button {
+				width: 50%;
+				padding: 12px;
+				border: none;
+				border-radius: 5px;
+				background: linear-gradient(90deg, #6a0dad, #00ffcc);
+				color: white;
+				font-size: 16px;
+				cursor: pointer;
+				transition: 0.3s;
+			}
+
+			.contact button:hover {
+				opacity: 0.8;
+			}
+
+			@keyframes fadeIn {
+				from {
+					opacity: 0;
+				}
+				to {
+					opacity: 1;
+				}
+			}
+		</style>
+		<script>
+
+			  document.addEventListener("DOMContentLoaded", function () {
+				let sections = document.querySelectorAll(".section");
+				let skills = document.querySelectorAll(".skill");
+				let profilePic = document.querySelector(".profile-pic");
+				let options = { threshold: 0.3 };
+
+				let observer = new IntersectionObserver((entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							entry.target.classList.add("fade-in");
+						}
+					});
+				}, options);
+
+				sections.forEach((section) => {
+					observer.observe(section);
+				});
+
+				skills.forEach((skill, index) => {
+					setTimeout(() => {
+						skill.classList.add("visible");
+					}, index * 200);
+				});
+
+				setTimeout(() => {
+					profilePic.classList.add("fade-in");
+				}, 500);
+			});
+		</script>
+	</head>
+	<body>
+		<header class="hello">
+			<!-- <div class="first">
+				<img src="profile.jpg" alt="Asad Ahmed" class="profile-pic" />
+			</div> -->
+			<div class="second">
+				<h1>Asad Ahmed</h1>
+				<p>Software Engineer | Developer</p>
+			</div>
+		</header>
+		<div class="container">
+			<div class="section">
+				<h2>About Me</h2>
+				<p>
+					I am Asad Ahmed, a CS student at FAST University. I love building
+					software solutions and continuously expanding my knowledge in
+					technology.
+				</p>
+			</div>
+			<div class="section">
+				<h2>Education</h2>
+				<p>
+					I am currently pursuing a Bachelor's degree in Computer Science at
+					FAST National University. FAST is among Pakistan's leading
+					universities for computer science, renowned for its challenging
+					curriculum, expert faculty, and vibrant student community. The
+					university is recognized for producing skilled graduates who work at
+					top tech firms worldwide.
+				</p>
+				<p>
+					The CS program at FAST covers a variety of areas, including
+					Algorithms, AI, Blockchain, and Full Stack Development, giving
+					students a strong foundation for innovation.
+				</p>
+			</div>
+			<div class="section">
+				<h2>Projects</h2>
+				<ul>
+					<li>
+						<strong>E-Medi:</strong> A C++ based medical platform for doctors
+						and patients, integrating AI chatbot for assistance.
+					</li>
+					<li>
+						<strong>Medical Center:</strong> A C++ project for AI-assisted
+						medical consultation.
+					</li>
+				</ul>
+			</div>
+			<div class="section">
+				<h2>Certifications</h2>
+				<ul class="abc">
+					<li>Blockchain Certification</li>
+					<li>Financial Learning Certification</li>
+				</ul>
+			</div>
+			<div class="section">
+				<h2>Skills & Interests</h2>
+				<div class="skills">
+					<div class="skill">C</div>
+					<div class="skill">C++</div>
+					<div class="skill">HTML</div>
+					<div class="skill">JavaScript</div>
+					<div class="skill">CSS</div>
+					<div class="skill">Blockchain</div>
+					<div class="skill">Finance</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
